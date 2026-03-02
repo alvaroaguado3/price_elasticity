@@ -1,0 +1,7 @@
+# This file can be used to store visualization outputs
+# The data_analysis.py script will save charts here
+
+*.png
+*.jpg
+*.svg
+*.pdf
