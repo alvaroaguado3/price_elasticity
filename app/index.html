@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Elasticity Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Price Elasticity of Demand Calculator</h1>
+            <p class="subtitle">Understand how price changes affect demand</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Calculator Section -->
+            <section class="card calculator-section">
+                <h2>Calculate Elasticity</h2>
+                
+                <div class="input-group">
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label for="initialPrice">Initial Price ($)</label>
+                            <input type="number" id="initialPrice" value="10" step="0.01" min="0">
+                        </div>
+                        <div class="input-field">
+                            <label for="newPrice">New Price ($)</label>
+                            <input type="number" id="newPrice" value="12" step="0.01" min="0">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label for="initialQuantity">Initial Quantity</label>
+                            <input type="number" id="initialQuantity" value="100" step="1" min="0">
+                        </div>
+                        <div class="input-field">
+                            <label for="newQuantity">New Quantity</label>
+                            <input type="number" id="newQuantity" value="80" step="1" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="calculateBtn" class="btn-primary">Calculate Elasticity</button>
+
+                <div id="results" class="results hidden">
+                    <div class="result-card">
+                        <h3>Results</h3>
+                        <div class="result-row">
+                            <span class="label">Price Change:</span>
+                            <span id="priceChange" class="value"></span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Quantity Change:</span>
+                            <span id="quantityChange" class="value"></span>
+                        </div>
+                        <div class="result-row highlight">
+                            <span class="label">Elasticity (Ed):</span>
+                            <span id="elasticity" class="value"></span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Elasticity Type:</span>
+                            <span id="elasticityType" class="value badge"></span>
+                        </div>
+                        <div class="interpretation">
+                            <h4>Interpretation:</h4>
+                            <p id="interpretation"></p>
+                        </div>
+                        <div class="business-insight">
+                            <h4>Business Insight:</h4>
+                            <p id="businessInsight"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="card chart-section">
+                <h2>Demand Curve Visualization</h2>
+                <canvas id="demandChart"></canvas>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-marker original"></span>
+                        <span>Original Point</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-marker new"></span>
+                        <span>New Point</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Info Section -->
+        <section class="info-grid">
+            <div class="info-card">
+                <div class="info-icon elastic">📈</div>
+                <h3>Elastic Demand</h3>
+                <p class="info-type">|Ed| > 1</p>
+                <p>Quantity changes more than price. Lower prices increase total revenue.</p>
+                <p class="examples"><strong>Examples:</strong> Luxury goods, vacations, restaurant meals</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon unit">⚖️</div>
+                <h3>Unit Elastic</h3>
+                <p class="info-type">|Ed| = 1</p>
+                <p>Quantity changes proportionally with price. Revenue stays constant.</p>
+                <p class="examples"><strong>Examples:</strong> Some consumer goods at equilibrium</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon inelastic">📉</div>
+                <h3>Inelastic Demand</h3>
+                <p class="info-type">|Ed| < 1</p>
+                <p>Quantity changes less than price. Higher prices increase total revenue.</p>
+                <p class="examples"><strong>Examples:</strong> Gasoline, utilities, necessities</p>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section class="card examples-section">
+            <h2>Try These Examples</h2>
+            <div class="examples-grid">
+                <button class="example-btn" data-example="coffee">
+                    ☕ Coffee Shop<br>
+                    <small>Unit Elastic</small>
+                </button>
+                <button class="example-btn" data-example="airline">
+                    ✈️ Airline Tickets<br>
+                    <small>Elastic</small>
+                </button>
+                <button class="example-btn" data-example="salt">
+                    🧂 Salt<br>
+                    <small>Inelastic</small>
+                </button>
+                <button class="example-btn" data-example="luxury">
+                    💎 Luxury Watch<br>
+                    <small>Very Elastic</small>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for economics students and business professionals</p>
+            <p><a href="https://github.com/yourusername/price_elasticity" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
